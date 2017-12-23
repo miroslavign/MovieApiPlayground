@@ -1,0 +1,112 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+
+repositories {
+    maven(){
+        url "https://oss.sonatype.org/content/repositories/snapshots"
+    }
+    maven { url "https://maven.google.com" }
+    mavenCentral()
+}
+
+android {
+    compileSdkVersion 26
+    defaultConfig {
+        applicationId "rs.novotek.movieapiplayground"
+        minSdkVersion 21
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+    lintOptions {
+        disable "ResourceType"
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    compile project(":domain")
+    compile project(":data")
+    implementation"org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+
+
+    // Support libraries
+    implementation deps.support.app_compat
+    implementation deps.support.v4
+    implementation deps.support.design
+    implementation deps.support.annotations
+    implementation deps.support.recyclerview
+    implementation deps.support.cardview
+    implementation deps.support.v13
+    implementation deps.support.core_utils
+    implementation deps.support.gridlayout
+    implementation deps.support.percent
+    implementation deps.support.palette
+    implementation deps.support.vector
+    implementation deps.support.constraint_layout
+    // conductor
+    implementation deps.conductor.core
+    implementation deps.conductor.support
+    implementation deps.conductor.rxjavalifecycle
+    implementation deps.conductor.rxjavaautodispose
+    //utils
+    implementation deps.util.javax_validation
+    implementation deps.util.javax_annotation
+    // butterKnife
+    implementation deps.butterknife.core
+    kapt deps.butterknife.compiler
+    // Dagger Core
+    compileOnly "com.google.dagger:dagger:2.12"
+    kapt "com.google.dagger:dagger-compiler:2.12"
+    // Dagger Android
+    implementation "com.google.dagger:dagger-android:2.12"
+    kapt "com.google.dagger:dagger-android-processor:2.12"
+
+    // Facebook
+    implementation deps.facebook.stetho
+    implementation deps.facebook.stetho_okhttp3
+    implementation deps.facebook.android_sdk
+
+    // EventBus
+    implementation deps.util.eventbus
+
+    compileOnly 'javax.annotation:jsr250-api:1.0'
+    implementation deps.google.gson
+
+    // Retrofit 2
+    implementation deps.retrofit.runtime
+    implementation deps.retrofit.gson
+    implementation deps.retrofit.rxjava2adapter
+    // Square
+    implementation deps.square.okhttp3
+    implementation deps.square.okhttp3_login_interceptor
+    implementation deps.square.picasso
+    implementation deps.square.picasso_downloader
+    // RxJava2
+    implementation deps.rxjava.rxjava
+    implementation deps.rxjava.rxandroid
+    implementation deps.rxjava.rxrelay
+    implementation deps.rxjava.replaying_share
+    implementation deps.rxjava.arrow_optional
+    implementation deps.rxjava.rxbinding
+
+
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+}

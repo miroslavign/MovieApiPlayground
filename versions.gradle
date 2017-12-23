@@ -1,0 +1,224 @@
+/**
+* Shared file between builds so that they can all use the same dependencies and
+* maven repositories.
+**/
+ext.deps = [:]
+def versions = [:]
+versions.arch = hasProperty("ARCH_VERSION") ? getProperty("ARCH_VERSION") : "1.0.0-beta2"
+versions.support = "26.1.0"
+versions.dagger = "2.12"
+versions.junit = "4.12"
+versions.espresso = "3.0.1"
+versions.retrofit = "2.3.0"
+versions.firebase = "11.4.2"
+versions.multidex = "1.0.2"
+versions.mockwebserver = "3.8.1"
+versions.apache_commons = "2.5"
+versions.mockito = "2.7.19"
+versions.mockito_all = "1.10.19"
+versions.dexmaker = "2.2.0"
+versions.constraint_layout = "1.1.0-beta3"
+versions.glide = "3.8.0"
+versions.timber = "4.5.1"
+versions.android_gradle_plugin = "3.0.0-beta7"
+versions.rxjava2 = "2.1.5"
+versions.rx_android = "2.0.1"
+versions.atsl_runner = "1.0.1"
+versions.atsl_rules = "1.0.1"
+versions.hamcrest = "1.3"
+versions.kotlin = "1.1.4-2"
+versions.paging = "1.0.0-alpha2"
+versions.libphonenumber = "7.3.0"
+versions.googlegson = "2.8.2"
+versions.okhttp3 = "3.9.0"
+versions.picasso = "2.5.3-SNAPSHOT"
+versions.picasso_downloader = "1.1.0"
+versions.rxrelay = "2.0.0"
+versions.rxjava = "2.1.3"
+versions.rxandroid = "2.0.1"
+versions.arrow = "1.0.0"
+versions.amazon = "2.3.1"
+versions.stripe = "2.0.2"
+versions.butterknife = "8.8.1"
+versions.exoplayer = "r2.4.0"
+versions.giraffeplayer = "0.1.9"
+versions.conductor = "2.1.4"
+def deps = [:]
+
+def support = [:]
+support.annotations = "com.android.support:support-annotations:$versions.support"
+support.app_compat = "com.android.support:appcompat-v7:$versions.support"
+support.recyclerview = "com.android.support:recyclerview-v7:$versions.support"
+support.cardview = "com.android.support:cardview-v7:$versions.support"
+support.design = "com.android.support:design:$versions.support"
+support.v4 = "com.android.support:support-v4:$versions.support"
+support.core_utils = "com.android.support:support-core-utils:$versions.support"
+support.v13 = "com.android.support:support-v13:$versions.support"
+support.gridlayout = "com.android.support:gridlayout-v7:$versions.support"
+support.percent =  "com.android.support:percent:$versions.support"
+support.palette = "com.android.support:palette-v7:$versions.support"
+support.vector = "com.android.support:animated-vector-drawable:$versions.support"
+support.custom_tabs = "com.android.support:customtabs:$versions.support"
+support.constraint_layout = "com.android.support.constraint:constraint-layout:$versions.constraint_layout"
+support.multi_dex = "com.android.support:multidex:$versions.multidex"
+deps.support = support
+
+def room = [:]
+room.runtime = "android.arch.persistence.room:runtime:$versions.arch"
+room.compiler = "android.arch.persistence.room:compiler:$versions.arch"
+room.rxjava2 = "android.arch.persistence.room:rxjava2:$versions.arch"
+room.testing = "android.arch.persistence.room:testing:$versions.arch"
+deps.room = room
+
+def lifecycle = [:]
+lifecycle.runtime = "android.arch.lifecycle:runtime:$versions.arch"
+lifecycle.extensions = "android.arch.lifecycle:extensions:$versions.arch"
+lifecycle.java8 = "android.arch.lifecycle:common-java8:$versions.arch"
+lifecycle.compiler = "android.arch.lifecycle:compiler:$versions.arch"
+deps.lifecycle = lifecycle
+
+def arch_core = [:]
+arch_core.testing = "android.arch.core:core-testing:$versions.arch"
+deps.arch_core = arch_core
+
+def retrofit = [:]
+retrofit.runtime = "com.squareup.retrofit2:retrofit:$versions.retrofit"
+retrofit.gson = "com.squareup.retrofit2:converter-gson:$versions.retrofit"
+retrofit.rxjava2adapter = "com.squareup.retrofit2:adapter-rxjava2:$versions.retrofit"
+deps.retrofit = retrofit
+
+def dagger = [:]
+dagger.runtime = "com.google.dagger:dagger:$versions.dagger"
+dagger.android = "com.google.dagger:dagger-android:$versions.dagger"
+dagger.android_support = "com.google.dagger:dagger-android-support:$versions.dagger"
+dagger.compiler = "com.google.dagger:dagger-compiler:$versions.dagger"
+dagger.android_support_compiler = "com.google.dagger:dagger-android-processor:$versions.dagger"
+deps.dagger = dagger
+
+def butterknife = [:]
+butterknife.core = "com.jakewharton:butterknife:$versions.butterknife"
+butterknife.compiler = "com.jakewharton:butterknife-compiler:$versions.butterknife"
+deps.butterknife = butterknife
+
+def firebase = [:]
+firebase.core = "com.google.firebase:firebase-core:$versions.firebase"
+firebase.messaging = "com.google.firebase:firebase-messaging:$versions.firebase"
+firebase.auth = "com.google.firebase:firebase-auth:$versions.firebase"
+deps.firebase = firebase
+
+def gms = [:]
+gms.auth = "com.google.android.gms:play-services-auth:$versions.firebase"
+deps.gms = gms
+
+def google = [:]
+google.libphonenumber = "com.googlecode.libphonenumber:libphonenumber:$versions.libphonenumber"
+google.gson = "com.google.code.gson:gson:$versions.googlegson"
+deps.google = google
+
+def square = [:]
+square.okhttp3 = "com.squareup.okhttp3:okhttp:$versions.okhttp3"
+square.okhttp3_login_interceptor = "com.squareup.okhttp3:logging-interceptor:$versions.okhttp3"
+square.picasso = "com.squareup.picasso:picasso:$versions.picasso"
+square.picasso_downloader = "com.jakewharton.picasso:picasso2-okhttp3-downloader:$versions.picasso_downloader"
+deps.square = square
+
+def rxjava = [:]
+rxjava.rxjava = "io.reactivex.rxjava2:rxjava:$versions.rxjava"
+rxjava.rxandroid = "io.reactivex.rxjava2:rxandroid:$versions.rxandroid"
+rxjava.rxrelay = "com.jakewharton.rxrelay2:rxrelay:$versions.rxrelay"
+rxjava.replaying_share = "com.jakewharton.rx2:replaying-share:$versions.rxrelay"
+rxjava.arrow_optional = "com.fernandocejas:arrow:$versions.arrow"
+rxjava.rxbinding = "com.jakewharton.rxbinding2:rxbinding:$versions.rxrelay"
+deps.rxjava = rxjava
+
+def amazon = [:]
+amazon.core = "com.amazonaws:aws-android-sdk-core:$versions.amazon"
+amazon.cognito = "com.amazonaws:aws-android-sdk-cognito:$versions.amazon"
+amazon.sdk_s3 = "com.amazonaws:aws-android-sdk-s3:$versions.amazon"
+deps.amazon = amazon
+
+def util = [:]
+util.joda_time = "net.danlew:android.joda:2.9.9"
+util.javax_validation = "javax.validation:validation-api:1.0.0.GA"
+util.birbit_jobqueue = "com.birbit:android-priority-jobqueue:2.0.1"
+util.logger = "com.orhanobut:logger:1.15"
+util.eventbus = "org.greenrobot:eventbus:3.0.0"
+util.javax_annotation = "org.glassfish:javax.annotation:10.0-b28"
+util.commons_lang = "org.apache.commons:commons-lang3:3.6"
+util.evernote_job = "com.evernote:android-job:1.2.0"
+util.smarttablayout = "com.ogaclejapan.smarttablayout:library:1.6.1@aar"
+util.creditcard = "com.github.dbachelder:CreditCardEntry:1.4.7"
+util.material_dialogs = "com.afollestad.material-dialogs:core:0.9.4.5"
+util.appintro = "com.github.paolorotolo:appintro:4.0.0"
+util.tokenize = "com.hootsuite.android:nachos:1.1.1"
+util.stripe = "com.stripe:stripe-android:2.0.2"
+util.swipe =  "com.github.omadahealth:swipy:1.2.3@aar"
+deps.util = util
+
+def conductor = [:]
+conductor.core = "com.bluelinelabs:conductor:$versions.conductor"
+conductor.support = "com.bluelinelabs:conductor-support:$versions.conductor"
+conductor.rxjavalifecycle = "com.bluelinelabs:conductor-rxlifecycle2:$versions.conductor"
+conductor.rxjavaautodispose = "com.bluelinelabs:conductor-autodispose:$versions.conductor"
+conductor.arch = "com.bluelinelabs:conductor-archlifecycle:0.1.1"
+deps.conductor = conductor
+
+def facebook = [:]
+facebook.stetho = "com.facebook.stetho:stetho:1.5.0"
+facebook.stetho_okhttp3 = "com.facebook.stetho:stetho-okhttp3:1.5.0"
+facebook.android_sdk = "com.facebook.android:facebook-android-sdk:4.23.0"
+deps.facebook = facebook
+
+def analytics = [:]
+analytics.mixpanel = "com.mixpanel.android:mixpanel-android:5.1.4"
+analytics.appsflyer = "com.appsflyer:af-android-sdk:4.7.4@aar"
+deps.analytics = analytics
+
+def espresso = [:]
+espresso.core = "com.android.support.test.espresso:espresso-core:$versions.espresso"
+espresso.contrib = "com.android.support.test.espresso:espresso-contrib:$versions.espresso"
+espresso.intents = "com.android.support.test.espresso:espresso-intents:$versions.espresso"
+espresso.annotations = "com.android.support:support-annotations:$versions.support"
+espresso.idling_resource = "com.android.support.test.espresso:espresso-idling-resource:$versions.espresso"
+espresso.web = "com.android.support.test.espresso:espresso-web:$versions.espresso"
+deps.espresso = espresso
+
+def test = [:]
+test.hamcrest = "org.hamcrest:hamcrest-library:$versions.hamcrest"
+test.uiautomator = "com.android.support.test.uiautomator:uiautomator-v18:2.1.3"
+test.runner = "com.android.support.test:runner:1.0.1"
+test.rules = "com.android.support.test:rules:1.0.1"
+test.mock_web_server  = "com.squareup.okhttp3:mockwebserver:$versions.mockwebserver"
+test.junit = "junit:junit:$versions.junit"
+test.mockito_core = "org.mockito:mockito-core:2.8.47"
+test.mockito_all = "org.mockito:mockito-all:$versions.mockito_all"
+test.roboelectric = "org.robolectric:robolectric:3.3"
+test.roboelectric_shadow_multidex = "org.robolectric:shadows-multidex:3.2.2"
+deps.test = test
+
+def kotlin = [:]
+kotlin.stdlib = "org.jetbrains.kotlin:kotlin-stdlib-jre7:$versions.kotlin"
+kotlin.test = "org.jetbrains.kotlin:kotlin-test-junit:$versions.kotlin"
+kotlin.plugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
+
+deps.kotlin = kotlin
+deps.dexmaker = "com.linkedin.dexmaker:dexmaker-mockito:$versions.dexmaker"
+deps.android_gradle_plugin = "com.android.tools.build:gradle:$versions.android_gradle_plugin"
+ext.deps = deps
+
+deps.exoplayer = "com.google.android.exoplayer:exoplayer:$versions.exoplayer"
+deps.giraffeplayer = "com.github.tcking:giraffeplayer2:$versions.giraffeplayer"
+
+def build_versions = [:]
+build_versions.min_sdk = 19
+build_versions.target_sdk = 26
+build_versions.build_tools = "26.1.0"
+ext.build_versions = build_versions
+
+
+def addRepos(RepositoryHandler handler) {
+    handler.google()
+    handler.jcenter()
+    handler.maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
+}
+ext.addRepos = this.&addRepos
