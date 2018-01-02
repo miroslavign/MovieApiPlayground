@@ -1,12 +1,12 @@
 
-package rs.novotek.domain.model;
+package rs.novotek.domain.model.movie;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.os.Parcelable.Creator;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang3.builder.ToStringBuilder;
@@ -36,7 +36,7 @@ public class Videos implements Serializable, Parcelable
     private final static long serialVersionUID = 5074388837122918788L;
 
     protected Videos(Parcel in) {
-        in.readList(this.results, (rs.novotek.domain.model.Result.class.getClassLoader()));
+        in.readList(this.results, (Result.class.getClassLoader()));
     }
 
     public Videos() {

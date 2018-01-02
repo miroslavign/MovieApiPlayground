@@ -1,12 +1,12 @@
 
-package rs.novotek.domain.model;
+package rs.novotek.domain.model.movie;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.os.Parcelable.Creator;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang3.builder.ToStringBuilder;
@@ -39,8 +39,8 @@ public class Images implements Serializable, Parcelable
     private final static long serialVersionUID = 3019197028034900028L;
 
     protected Images(Parcel in) {
-        in.readList(this.backdrops, (rs.novotek.domain.model.Backdrop.class.getClassLoader()));
-        in.readList(this.posters, (rs.novotek.domain.model.Poster.class.getClassLoader()));
+        in.readList(this.backdrops, (Backdrop.class.getClassLoader()));
+        in.readList(this.posters, (Poster.class.getClassLoader()));
     }
 
     public Images() {

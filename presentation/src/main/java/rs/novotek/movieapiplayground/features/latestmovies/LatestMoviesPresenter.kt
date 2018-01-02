@@ -18,6 +18,17 @@ class LatestMoviesPresenter @Inject constructor(private val schedulerProvider: S
                 .doFinally { view?.hideLoading() }
                 .subscribe({ view?.onLoadMovieSuccess(it) }, { view?.onLoadMovieError(it) }))
     }
+
+    override fun discoverMovies(pageNr: Int) {
+        disposables.add(getMovieUseCase.discoverMovies(pageNr)
+                .subscribeOn(schedulerProvider.backgroundThread())
+                .observeOn(schedulerProvider.mainThread())
+                .doOnSubscribe { view?.showLoading() }
+                .doFinally { view?.hideLoading() }
+                .subscribe({ view?.onDiscoverMoviesSuccess(it) }, { view?.onDiscoverMoviesError(it) }))
+    }
+
+
 /*
     override fun deleteNote(id: Long) {
         disposables.add(deleteNoteUseCase.delete(Note(id))

@@ -1,26 +1,15 @@
 package rs.novotek.movieapiplayground.features.latestmovies
 
 import android.content.Context
-import android.support.annotation.NonNull
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
 import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import com.bluelinelabs.conductor.Controller
 import android.widget.TextView
 import butterknife.BindView
-import butterknife.OnClick
-import com.bluelinelabs.conductor.RouterTransaction
-import com.bluelinelabs.conductor.changehandler.FadeChangeHandler
-import rs.novotek.domain.model.Movies
+import rs.novotek.domain.model.discover.DiscoverMovies
+import rs.novotek.domain.model.movie.Movies
 import rs.novotek.movieapiplayground.MovieApiPlaygroundApp
 import rs.novotek.movieapiplayground.R
-import rs.novotek.movieapiplayground.di.AppDbModule
-import rs.novotek.movieapiplayground.di.AppModule
 import rs.novotek.movieapiplayground.mvp.BaseView
-import java.util.logging.Logger
 import javax.inject.Inject
 
 /**
@@ -71,7 +60,8 @@ class LatestMoviesView : BaseView(), LatestMoviesContract.View {
         super.onAttach(view)
         initRecyclerView(view.context)
         presenter.start(this)
-        presenter.loadMovie("157336")
+        //presenter.loadMovie("157336")
+        presenter.discoverMovies(1)
     }
 
     override fun onDetach(view: View) {
@@ -87,10 +77,20 @@ class LatestMoviesView : BaseView(), LatestMoviesContract.View {
     override fun onLoadMovieSuccess(movies: Movies) {
         Log.d("loger", "movie is "+ movies.originalTitle)
         tvMovieName.text = movies.originalTitle
-        //TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun onDiscoverMoviesSuccess(movies: DiscoverMovies) {
+        Log.d("loger", "movie is "+ movies.results.toString())
+        tvMovieName.text = movies.results.toString()
     }
 
     override fun onLoadMovieError(throwable: Throwable) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        //Timber.e(throwable)
+        //showMessage(R.string.notes_load_error)
+    }
+
+    override fun onDiscoverMoviesError(throwable: Throwable) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
         //Timber.e(throwable)
         //showMessage(R.string.notes_load_error)

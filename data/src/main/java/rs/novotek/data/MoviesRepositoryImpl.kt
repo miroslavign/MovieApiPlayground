@@ -4,13 +4,20 @@ import io.reactivex.Completable
 import io.reactivex.Maybe
 import io.reactivex.Single
 import rs.novotek.domain.backend.RestApi
-import rs.novotek.domain.model.Movies
+import rs.novotek.domain.model.discover.DiscoverMovies
+import rs.novotek.domain.model.movie.Movies
 import rs.novotek.domain.repository.MoviesRepository
 
 /**
  * Created by Mike on 12/23/2017.
  */
 class MoviesRepositoryImpl(private val restApi: RestApi): MoviesRepository {
+    override fun discoverMovies(pageNr: Int): Maybe<DiscoverMovies> {
+        return restApi.restService
+                .disoverMovies(pageNr)
+                .toMaybe()
+    }
+
     override fun insertOrUpdate(note: Movies): Completable {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }

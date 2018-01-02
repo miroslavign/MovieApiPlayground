@@ -1,15 +1,15 @@
 
-package rs.novotek.domain.model;
+package rs.novotek.domain.model.movie;
 
 import java.io.Serializable;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.os.Parcelable.Creator;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
-public class Poster implements Serializable, Parcelable
+public class Backdrop implements Serializable, Parcelable
 {
 
     @SerializedName("aspect_ratio")
@@ -23,7 +23,7 @@ public class Poster implements Serializable, Parcelable
     private Integer height;
     @SerializedName("iso_639_1")
     @Expose
-    private String iso6391;
+    private Object iso6391;
     @SerializedName("vote_average")
     @Expose
     private Integer voteAverage;
@@ -33,35 +33,35 @@ public class Poster implements Serializable, Parcelable
     @SerializedName("width")
     @Expose
     private Integer width;
-    public final static Parcelable.Creator<Poster> CREATOR = new Creator<Poster>() {
+    public final static Parcelable.Creator<Backdrop> CREATOR = new Creator<Backdrop>() {
 
 
         @SuppressWarnings({
             "unchecked"
         })
-        public Poster createFromParcel(Parcel in) {
-            return new Poster(in);
+        public Backdrop createFromParcel(Parcel in) {
+            return new Backdrop(in);
         }
 
-        public Poster[] newArray(int size) {
-            return (new Poster[size]);
+        public Backdrop[] newArray(int size) {
+            return (new Backdrop[size]);
         }
 
     }
     ;
-    private final static long serialVersionUID = 5620100151909618363L;
+    private final static long serialVersionUID = 1063414818691850382L;
 
-    protected Poster(Parcel in) {
+    protected Backdrop(Parcel in) {
         this.aspectRatio = ((Double) in.readValue((Double.class.getClassLoader())));
         this.filePath = ((String) in.readValue((String.class.getClassLoader())));
         this.height = ((Integer) in.readValue((Integer.class.getClassLoader())));
-        this.iso6391 = ((String) in.readValue((String.class.getClassLoader())));
+        this.iso6391 = ((Object) in.readValue((Object.class.getClassLoader())));
         this.voteAverage = ((Integer) in.readValue((Integer.class.getClassLoader())));
         this.voteCount = ((Integer) in.readValue((Integer.class.getClassLoader())));
         this.width = ((Integer) in.readValue((Integer.class.getClassLoader())));
     }
 
-    public Poster() {
+    public Backdrop() {
     }
 
     public Double getAspectRatio() {
@@ -72,7 +72,7 @@ public class Poster implements Serializable, Parcelable
         this.aspectRatio = aspectRatio;
     }
 
-    public Poster withAspectRatio(Double aspectRatio) {
+    public Backdrop withAspectRatio(Double aspectRatio) {
         this.aspectRatio = aspectRatio;
         return this;
     }
@@ -85,7 +85,7 @@ public class Poster implements Serializable, Parcelable
         this.filePath = filePath;
     }
 
-    public Poster withFilePath(String filePath) {
+    public Backdrop withFilePath(String filePath) {
         this.filePath = filePath;
         return this;
     }
@@ -98,20 +98,20 @@ public class Poster implements Serializable, Parcelable
         this.height = height;
     }
 
-    public Poster withHeight(Integer height) {
+    public Backdrop withHeight(Integer height) {
         this.height = height;
         return this;
     }
 
-    public String getIso6391() {
+    public Object getIso6391() {
         return iso6391;
     }
 
-    public void setIso6391(String iso6391) {
+    public void setIso6391(Object iso6391) {
         this.iso6391 = iso6391;
     }
 
-    public Poster withIso6391(String iso6391) {
+    public Backdrop withIso6391(Object iso6391) {
         this.iso6391 = iso6391;
         return this;
     }
@@ -124,7 +124,7 @@ public class Poster implements Serializable, Parcelable
         this.voteAverage = voteAverage;
     }
 
-    public Poster withVoteAverage(Integer voteAverage) {
+    public Backdrop withVoteAverage(Integer voteAverage) {
         this.voteAverage = voteAverage;
         return this;
     }
@@ -137,7 +137,7 @@ public class Poster implements Serializable, Parcelable
         this.voteCount = voteCount;
     }
 
-    public Poster withVoteCount(Integer voteCount) {
+    public Backdrop withVoteCount(Integer voteCount) {
         this.voteCount = voteCount;
         return this;
     }
@@ -150,7 +150,7 @@ public class Poster implements Serializable, Parcelable
         this.width = width;
     }
 
-    public Poster withWidth(Integer width) {
+    public Backdrop withWidth(Integer width) {
         this.width = width;
         return this;
     }

@@ -1,12 +1,12 @@
 
-package rs.novotek.domain.model;
+package rs.novotek.domain.model.movie;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.os.Parcelable.Creator;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang3.builder.ToStringBuilder;
@@ -118,7 +118,7 @@ public class Movies implements Serializable, Parcelable
         this.backdropPath = ((String) in.readValue((String.class.getClassLoader())));
         this.belongsToCollection = ((Object) in.readValue((Object.class.getClassLoader())));
         this.budget = ((Integer) in.readValue((Integer.class.getClassLoader())));
-        in.readList(this.genres, (rs.novotek.domain.model.Genre.class.getClassLoader()));
+        in.readList(this.genres, (Genre.class.getClassLoader()));
         this.homepage = ((String) in.readValue((String.class.getClassLoader())));
         this.id = ((Integer) in.readValue((Integer.class.getClassLoader())));
         this.imdbId = ((String) in.readValue((String.class.getClassLoader())));
@@ -127,12 +127,12 @@ public class Movies implements Serializable, Parcelable
         this.overview = ((String) in.readValue((String.class.getClassLoader())));
         this.popularity = ((Double) in.readValue((Double.class.getClassLoader())));
         this.posterPath = ((String) in.readValue((String.class.getClassLoader())));
-        in.readList(this.productionCompanies, (rs.novotek.domain.model.ProductionCompany.class.getClassLoader()));
-        in.readList(this.productionCountries, (rs.novotek.domain.model.ProductionCountry.class.getClassLoader()));
+        in.readList(this.productionCompanies, (ProductionCompany.class.getClassLoader()));
+        in.readList(this.productionCountries, (ProductionCountry.class.getClassLoader()));
         this.releaseDate = ((String) in.readValue((String.class.getClassLoader())));
         this.revenue = ((Integer) in.readValue((Integer.class.getClassLoader())));
         this.runtime = ((Integer) in.readValue((Integer.class.getClassLoader())));
-        in.readList(this.spokenLanguages, (rs.novotek.domain.model.SpokenLanguage.class.getClassLoader()));
+        in.readList(this.spokenLanguages, (SpokenLanguage.class.getClassLoader()));
         this.status = ((String) in.readValue((String.class.getClassLoader())));
         this.tagline = ((String) in.readValue((String.class.getClassLoader())));
         this.title = ((String) in.readValue((String.class.getClassLoader())));
