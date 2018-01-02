@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
             router.setRoot(RouterTransaction.with(LatestMoviesView()))
         }
 
-        testRest()
+        //testRest()
     }
 
     private fun testRest() {

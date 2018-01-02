@@ -3,6 +3,7 @@ package rs.novotek.movieapiplayground.di
 import dagger.Module
 import dagger.Provides
 import rs.novotek.data.MoviesRepositoryImpl
+import rs.novotek.domain.backend.RestApi
 import rs.novotek.domain.repository.MoviesRepository
 import javax.inject.Singleton
 
@@ -11,7 +12,7 @@ class AppDbModule {
 
     @Singleton
     @Provides
-    fun provideMoviesRepository(): MoviesRepository = MoviesRepositoryImpl()
+    fun provideMoviesRepository(restApi: RestApi): MoviesRepository = MoviesRepositoryImpl(restApi)
 
     /*
     @Singleton

@@ -3,13 +3,14 @@ package rs.novotek.data
 import io.reactivex.Completable
 import io.reactivex.Maybe
 import io.reactivex.Single
+import rs.novotek.domain.backend.RestApi
 import rs.novotek.domain.model.Movies
 import rs.novotek.domain.repository.MoviesRepository
 
 /**
  * Created by Mike on 12/23/2017.
  */
-class MoviesRepositoryImpl: MoviesRepository {
+class MoviesRepositoryImpl(private val restApi: RestApi): MoviesRepository {
     override fun insertOrUpdate(note: Movies): Completable {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
@@ -19,7 +20,9 @@ class MoviesRepositoryImpl: MoviesRepository {
     }
 
     override fun getMovie(id: String): Maybe<Movies> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return restApi.restService
+                .getMovie(id)
+                .toMaybe()
     }
 
     override fun getAllNotes(): Single<List<Movies>> {

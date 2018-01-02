@@ -4,6 +4,7 @@ import android.content.Context
 import android.support.annotation.NonNull
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,6 +20,7 @@ import rs.novotek.movieapiplayground.R
 import rs.novotek.movieapiplayground.di.AppDbModule
 import rs.novotek.movieapiplayground.di.AppModule
 import rs.novotek.movieapiplayground.mvp.BaseView
+import java.util.logging.Logger
 import javax.inject.Inject
 
 /**
@@ -26,12 +28,19 @@ import javax.inject.Inject
  */
 
 class LatestMoviesView : BaseView(), LatestMoviesContract.View {
+
+    @BindView(R.id.tvMovieName)
+    lateinit var tvMovieName: TextView
+
     override fun showLoading() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
+        Log.d("", "something show")
+        //TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun hideLoading() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        Log.d("", "something hide")
+        //TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     /*
@@ -62,7 +71,7 @@ class LatestMoviesView : BaseView(), LatestMoviesContract.View {
         super.onAttach(view)
         initRecyclerView(view.context)
         presenter.start(this)
-        presenter.loadMovie("")
+        presenter.loadMovie("157336")
     }
 
     override fun onDetach(view: View) {
@@ -75,11 +84,14 @@ class LatestMoviesView : BaseView(), LatestMoviesContract.View {
         super.onDestroy()
     }
 
-    override fun onLoadMovieSuccess(notes: Movies) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun onLoadMovieSuccess(movies: Movies) {
+        Log.d("loger", "movie is "+ movies.originalTitle)
+        tvMovieName.text = movies.originalTitle
+        //TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun onLoadMovieError(throwable: Throwable) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
         //Timber.e(throwable)
         //showMessage(R.string.notes_load_error)
     }
