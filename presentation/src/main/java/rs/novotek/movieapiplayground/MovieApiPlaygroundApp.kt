@@ -50,7 +50,7 @@ class MovieApiPlaygroundApp : Application() {
                 DaggerAppComponent
                 .builder()
                 .appModule(AppModule(this, 10, 10,
-                        Constants.API_BASE_URL, false, Constants.AUTH_KEY))
+                        Constants.API_BASE_URL, false, BuildConfig.IMDB_KEY))
                 .build()
         appComponent.inject(this)
     }
