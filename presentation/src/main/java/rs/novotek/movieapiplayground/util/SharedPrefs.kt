@@ -1,3 +1,11 @@
+/*
+ * SharedPrefs.kt
+ * MovieApiPlayground
+ *
+ * Created by Miroslav Ignjatovic on 12/6/2018
+ * Copyright (c) 2017 Novotek All rights reserved.
+ */
+
 package rs.novotek.movieapiplayground.util
 
 import android.content.Context
@@ -8,10 +16,6 @@ import org.greenrobot.eventbus.ThreadMode
 import rs.novotek.movieapiplayground.util.threadsafeevents.*
 import javax.inject.Inject
 
-
-/**
- * Created by BX on 12/6/2017.
- */
 class SharedPrefs(context: Context) {
     init {
         mPref = context.getSharedPreferences(SETTINGS_NAME, Context.MODE_PRIVATE)

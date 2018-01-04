@@ -1,13 +1,12 @@
 /*
  * SchedulerProvider.java
- * Heyandroid
+ * MovieApiPlayground
  *
- * Created by Miroslav Ignjatovic on 3/11/2017
- * Copyright (c) 2015 CommonSun All rights reserved.
+ * Created by Miroslav Ignjatovic on 12/23/2017
+ * Copyright (c) 2017 Novotek All rights reserved.
  */
 
 package rs.novotek.domain.util
-
 
 import io.reactivex.Scheduler
 

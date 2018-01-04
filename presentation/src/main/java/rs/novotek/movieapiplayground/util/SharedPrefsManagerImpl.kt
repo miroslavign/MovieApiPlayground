@@ -1,13 +1,16 @@
+/*
+ * SharedPrefsManagerImpl.kt
+ * MovieApiPlayground
+ *
+ * Created by Miroslav Ignjatovic on 12/6/2018
+ * Copyright (c) 2017 Novotek All rights reserved.
+ */
+
 package rs.novotek.movieapiplayground.util
 
 import rs.novotek.domain.util.SharedPrefsManager
 import android.content.Context
 
-
-
-/**
- * Created by BX on 12/6/2017.
- */
 class SharedPrefsManagerImpl(context :Context) : SharedPrefsManager {
     private var prefs: SharedPrefs? = null
     init {

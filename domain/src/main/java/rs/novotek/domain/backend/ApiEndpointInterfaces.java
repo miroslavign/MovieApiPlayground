@@ -1,10 +1,9 @@
-
 /*
  * ApiEndpointInterfaces.java
- * Heyandroid
+ * MovieApiPlayground
  *
- * Created by Miroslav Ignjatovic on 9/17/2016
- * Copyright (c) 2015 CommonSun All rights reserved.
+ * Created by Miroslav Ignjatovic on 6/30/2017
+ * Copyright (c) 2017 Novotek All rights reserved.
  */
 
 package rs.novotek.domain.backend;
@@ -16,13 +15,12 @@ import retrofit2.http.Query;
 import rs.novotek.domain.model.discover.DiscoverMovies;
 import rs.novotek.domain.model.movie.Movies;
 
-
 public interface ApiEndpointInterfaces {
 
     //////////// MOVIES /////////////
     @GET("movie/{movie_id}")
     Single<Movies> getMovie(
-            @Path("movie_id") String movieId);
+            @Path("movie_id") Integer movieId);
 
     @GET("discover/movie")
     Single<DiscoverMovies> disoverMovies(

@@ -1,10 +1,9 @@
-
 /*
- * RetrofitCacheInterceptor.java
- * Heyandroid
+ * BaseMessage.java
+ * MovieApiPlayground
  *
  * Created by Miroslav Ignjatovic on 6/30/2017
- * Copyright (c) 2015 CommonSun All rights reserved.
+ * Copyright (c) 2017 Novotek All rights reserved.
  */
 
 package rs.novotek.domain.backend.retrofithelper;

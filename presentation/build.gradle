@@ -74,11 +74,11 @@ dependencies {
     implementation deps.butterknife.core
     kapt deps.butterknife.compiler
     // Dagger Core
-    compileOnly "com.google.dagger:dagger:2.12"
-    kapt "com.google.dagger:dagger-compiler:2.12"
+    compileOnly "com.google.dagger:dagger:2.13"
+    kapt "com.google.dagger:dagger-compiler:2.13"
     // Dagger Android
-    implementation "com.google.dagger:dagger-android:2.12"
-    kapt "com.google.dagger:dagger-android-processor:2.12"
+    implementation "com.google.dagger:dagger-android:2.13"
+    kapt "com.google.dagger:dagger-android-processor:2.13"
 
     // Facebook
     implementation deps.facebook.stetho

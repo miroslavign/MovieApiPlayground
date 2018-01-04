@@ -1,12 +1,10 @@
-
 /*
  * BaseMessage.java
- * Heyandroid
+ * MovieApiPlayground
  *
- * Created by Miroslav Ignjatovic on 11/3/2016
- * Copyright (c) 2015 CommonSun All rights reserved.
+ * Created by Miroslav Ignjatovic on 12/23/2016
+ * Copyright (c) 2017 Novotek All rights reserved.
  */
-
 
 package rs.novotek.domain.backend.json;
 

@@ -1,3 +1,11 @@
+/*
+ * BaseView.kt
+ * MovieApiPlayground
+ *
+ * Created by Miroslav Ignjatovic on 12/20/2018
+ * Copyright (c) 2017 Novotek All rights reserved.
+ */
+
 package rs.novotek.movieapiplayground.mvp
 
 import android.content.Context
@@ -41,6 +49,10 @@ abstract class BaseView : Controller() {
 
     protected fun showMessage(@IdRes msgResId: Int) {
         Toast.makeText(this.applicationContext, msgResId, Toast.LENGTH_SHORT).show()
+    }
+
+    protected fun showMessage(message: String) {
+        Toast.makeText(this.applicationContext, message, Toast.LENGTH_SHORT).show()
     }
 
     private fun setToolbarTitle() {

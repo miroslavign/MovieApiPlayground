@@ -1,9 +1,8 @@
-
 /*
  * Adopted by Miroslav Ignjatovic on 1/25/2017
  * From: Dandre' Allison
  *
- * Copyright (c) 2015 CommonSun All rights reserved.
+ * Copyright (c) 2017 Novotek All rights reserved.
  */
 
 package rs.novotek.domain.backend.retrofithelper;

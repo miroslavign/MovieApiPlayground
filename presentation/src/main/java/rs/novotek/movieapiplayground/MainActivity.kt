@@ -1,3 +1,11 @@
+/*
+ * MainActivity.kt
+ * MovieApiPlayground
+ *
+ * Created by Miroslav Ignjatovic on 11/30/2017
+ * Copyright (c) 2017 Novotek All rights reserved.
+ */
+
 package rs.novotek.movieapiplayground
 
 import android.os.Bundle
@@ -13,10 +21,6 @@ import com.bluelinelabs.conductor.RouterTransaction
 import rs.novotek.domain.backend.RestApi
 import rs.novotek.movieapiplayground.features.latestmovies.LatestMoviesView
 import javax.inject.Inject
-
-/**
- * Created by BX on 11/30/2017.
- */
 
 class MainActivity : AppCompatActivity() {
 
@@ -49,7 +53,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun testRest() {
         restApi.restService
-                .getMovie("157336")
+                .getMovie(157336)
                 .subscribe()
     }
 

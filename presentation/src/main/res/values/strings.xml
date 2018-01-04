@@ -2,4 +2,5 @@
     <string name="app_name">MovieApiPlayground</string>
     <string name="facebook_app_id">715067915303888</string>
     <string name="all_movies_title">All movies</string>
+    <string name="novie_detail_title">Movie loaded</string>
 </resources>

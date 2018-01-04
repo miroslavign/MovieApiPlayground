@@ -1,16 +1,20 @@
+/*
+ * MovieApiPlaygroundApp.kt
+ * MovieApiPlayground
+ *
+ * Created by Miroslav Ignjatovic on 11/30/2017
+ * Copyright (c) 2017 Novotek All rights reserved.
+ */
+
 package rs.novotek.movieapiplayground
 
 import android.app.Application
 import com.facebook.stetho.Stetho
-import dagger.android.DaggerApplication
 import rs.novotek.domain.Constants
 import rs.novotek.movieapiplayground.di.AppComponent
 import rs.novotek.movieapiplayground.di.AppModule
 import rs.novotek.movieapiplayground.di.DaggerAppComponent
 
-/**
- * Created by BX on 11/30/2017.
- */
 class MovieApiPlaygroundApp : Application() {
 
     companion object {

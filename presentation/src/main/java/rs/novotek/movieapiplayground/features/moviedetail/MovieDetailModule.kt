@@ -1,12 +1,12 @@
 /*
- * LatestMovieComponent.kt
+ * MovieDetailModule.kt
  * MovieApiPlayground
  *
- * Created by Miroslav Ignjatovic on 12/10/2017
+ * Created by Miroslav Ignjatovic on 1/4/2018
  * Copyright (c) 2017 Novotek All rights reserved.
  */
 
-package rs.novotek.movieapiplayground.features.latestmovies
+package rs.novotek.movieapiplayground.features.moviedetail
 
 import dagger.Module
 import dagger.Provides
@@ -19,7 +19,7 @@ import rs.novotek.movieapiplayground.di.PerScreen
  * Created by Mike on 12/23/2017.
  */
 @Module()
-class LatestMoviesModule {
+class MovieDetailModule {
 
     @PerScreen
     @Provides
@@ -27,6 +27,6 @@ class LatestMoviesModule {
 
     @PerScreen
     @Provides
-    fun providePresenter(schedulerProvider: SchedulerProvider, getMovieUseCase: GetMovieUseCase) = LatestMoviesPresenter(schedulerProvider, getMovieUseCase)
+    fun providePresenter(schedulerProvider: SchedulerProvider, getMovieUseCase: GetMovieUseCase) = MovieDetailPresenter(schedulerProvider, getMovieUseCase)
 
 }
